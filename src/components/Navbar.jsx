@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { MdOutlineDiscount } from "react-icons/md";
-import { FiSearch, FiUser } from "react-icons/fi";
+import {SlCompass} from "react-icons/sl"
+import { FiUser } from "react-icons/fi";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -15,37 +16,57 @@ function Navbar() {
     <footer className="navbar">
       <nav className="navbarNav">
         <ul className="navbarListItems">
-          <li className="navbarItem" onClick={() => navigate("/")}>
-            <FiSearch
-              fill={pathMatchRoute("/") ? "hsl(0, 0%, 17%)" : "hsl(0, 0%, 56%)"}
+          <li className="navbarListItem" onClick={() => navigate("/")}>
+            <SlCompass
+              fill={pathMatchRoute("/") ? "rgb(75,136,162)" : "rgb(68,56,80)"}
               height="36px"
               width="36px"
             />
-            <p>Explore</p>
+            <p
+              className={
+                pathMatchRoute("/")
+                  ? "navbarListItemNameActive"
+                  : "navbarListItemName"
+              }
+            >
+              Explore
+            </p>
           </li>
-          <li className="navbarItem" onClick={() => navigate("/offers")}>
+          <li className="navbarListItem" onClick={() => navigate("/offers")}>
             <MdOutlineDiscount
               fill={
-                pathMatchRoute("/offers")
-                  ? "hsl(0, 0%, 17%)"
-                  : "hsl(0, 0%, 56%)"
+                pathMatchRoute("/offers") ? "rgb(75,136,162)" : "rgb(68,56,80)"
               }
               height="36px"
               width="36px"
             />
-            <p>Offers</p>
+            <p
+              className={
+                pathMatchRoute("/offers")
+                  ? "navbarListItemNameActive"
+                  : "navbarListItemName"
+              }
+            >
+              Offers
+            </p>
           </li>
-          <li className="navbarItem" onClick={() => navigate("/sign-in")}>
+          <li className="navbarListItem" onClick={() => navigate("/profile")}>
             <FiUser
               fill={
-                pathMatchRoute("/sign-in")
-                  ? "hsl(0, 0%, 17%)"
-                  : "hsl(0, 0%, 56%)"
+                pathMatchRoute("/profile") ? "rgb(75,136,162)" : "rgb(68,56,80)"
               }
               height="36px"
               width="36px"
             />
-            <p>Profile</p>
+            <p
+              className={
+                pathMatchRoute("/profile")
+                  ? "navbarListItemNameActive"
+                  : "navbarListItemName"
+              }
+            >
+              Profile
+            </p>
           </li>
         </ul>
       </nav>
