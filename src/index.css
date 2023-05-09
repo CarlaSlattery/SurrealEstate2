@@ -69,8 +69,13 @@ button {
   color: rgb(75, 136, 162);
 }
 
+.pageContainer {
+  margin: 1em;
+}
 
-
-
+.pageHeader {
+  font-size: 2rem;
+  font-weight: 700;
+}
 
 
