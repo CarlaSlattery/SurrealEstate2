@@ -28,7 +28,7 @@ try {
   );
 
   if (userCredential) {
-    navigate("/");
+    navigate("/profile");
   }
 } catch (error) {
   toast.error("Invalid user credentials")

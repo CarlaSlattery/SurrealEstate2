@@ -20,7 +20,7 @@ a {
 button {
   outline: none;
   border: none;
-  
+
 }
 
 
@@ -63,7 +63,7 @@ button {
   margin-top: 0.25rem;
   font-size: 14px;
   font-weight: 700;
-  color:rgb(68, 56, 80);
+  color: rgb(68, 56, 80);
 }
 
 .navbarListItemNameActive {
@@ -80,6 +80,12 @@ button {
 }
 
 
-.registerButton {
+.registerButton,
+.logOut {
   background-color: cyan;
+}
+
+.changePersonalDetails {
+  color: cyan;
+  font-weight: 600;
 }
