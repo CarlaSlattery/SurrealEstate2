@@ -20,6 +20,7 @@ a {
 button {
   outline: none;
   border: none;
+  
 }
 
 
@@ -79,3 +80,6 @@ button {
 }
 
 
+.registerButton {
+  background-color: cyan;
+}

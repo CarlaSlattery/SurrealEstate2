@@ -1,5 +1,7 @@
 import { useState } from "react";
+import {toast} from "react-toastify"
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { IoIosArrowForward } from "react-icons/io";
 import { AiOutlineEye } from "react-icons/ai";
 
@@ -14,6 +16,26 @@ function SignIn() {
 setFormData((prevState) => ({...prevState, [e.target.id]: e.target.value,}))
   };
 
+const onSubmit = async (e) => {
+  e.preventDefault()
+try {
+  const auth = getAuth();
+
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+  if (userCredential) {
+    navigate("/");
+  }
+} catch (error) {
+  toast.error("Invalid user credentials")
+}
+  
+}
+
   return (
     <>
       <div className="pageContainer">
@@ -21,7 +43,7 @@ setFormData((prevState) => ({...prevState, [e.target.id]: e.target.value,}))
           <p className="pageHeader">Welcome Back!</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type="email"
             className="emailInput"
