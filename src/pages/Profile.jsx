@@ -35,6 +35,7 @@ function Profile() {
         await updateDoc(userRef, {
           name,
         });
+        toast.success("updated successfully!")
       }
     } catch (error) {
       console.log(error);
@@ -52,7 +53,7 @@ function Profile() {
   return (
     <div className="profile">
       <header className="profile-header">
-        <p className="pageHeader">Hello, {name}</p>
+        <p className="pageHeader">Welcome, {name}!</p>
         <button type="button" className="logOut" onClick={onLogOut}>
           Logout
         </button>

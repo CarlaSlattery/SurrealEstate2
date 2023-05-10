@@ -40,7 +40,7 @@ try {
     <>
       <div className="pageContainer">
         <header>
-          <p className="pageHeader">Welcome Back!</p>
+          <p className="pageHeader">Please sign in</p>
         </header>
 
         <form onSubmit={onSubmit}>
@@ -59,6 +59,7 @@ try {
               className="passwordInput"
               placeholder="password"
               id="password"
+              autoComplete="off"
               value={password}
               onChange={onChange}
             />
