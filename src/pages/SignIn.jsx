@@ -1,9 +1,10 @@
 import { useState } from "react";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { IoIosArrowForward } from "react-icons/io";
 import { AiOutlineEye } from "react-icons/ai";
+import OAuth from "../components/OAuth";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,28 +14,30 @@ function SignIn() {
   const navigate = useNavigate();
 
   const onChange = (e) => {
-setFormData((prevState) => ({...prevState, [e.target.id]: e.target.value,}))
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
   };
 
-const onSubmit = async (e) => {
-  e.preventDefault()
-try {
-  const auth = getAuth();
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
 
-  const userCredential = await signInWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-  if (userCredential) {
-    navigate("/profile");
-  }
-} catch (error) {
-  toast.error("Invalid user credentials")
-}
-  
-}
+      if (userCredential) {
+        navigate("/profile");
+      }
+    } catch (error) {
+      toast.error("Invalid user credentials");
+    }
+  };
 
   return (
     <>
@@ -74,11 +77,16 @@ try {
           <div className="signInBar">
             <p className="signInText">Sign In</p>
             <button className="signInButton">
-              <IoIosArrowForward fill="black" width="34px" height="34px" />
+              <IoIosArrowForward
+                fill="black"
+                width="34px"
+                height="34px"
+                alt="forward arrow"
+              />
             </button>
           </div>
         </form>
-        {/*Google OAuth */}
+        <OAuth />
 
         <Link to="/register" className="registerLink">
           Sign Up Instead

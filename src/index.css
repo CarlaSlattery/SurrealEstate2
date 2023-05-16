@@ -119,3 +119,11 @@ button {
     transform: rotate(360deg);
   }
 }
+
+.socialIconImg {
+  height: 26px;
+  width: 26px;
+  border: 2px solid; 
+  border-radius: 50%;
+  
+}
