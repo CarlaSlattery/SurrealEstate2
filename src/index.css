@@ -9,6 +9,7 @@ body {
   font-family: "Quicksand", sans-serif;
   background-color: #f2f4f8;
   margin: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -23,6 +24,24 @@ button {
 
 }
 
+/*__________ Global Layout _____________________ */
+
+.pageContainer {
+  margin: 1em;
+}
+
+@media (min-width: 1024px) {
+  .pageContainer {
+    margin: 3em
+  }
+}
+
+.pageHeader {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/*___________ NAVIGATION _______________ */
 
 .navbar {
   position: fixed;
@@ -70,19 +89,120 @@ button {
   color: rgb(75, 136, 162);
 }
 
-.pageContainer {
-  margin: 1em;
+/* ___________ FORM ELEMENTS _________________ */
+.passwordInput,
+.emailInput,
+.nameInput {
+  box-shadow: rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 3em;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+  padding: 0, 3em;
+  width: 100%;
+  height: 3rem;
+  outline: none;
+
 }
 
-.pageHeader {
-  font-size: 2rem;
+@media (min-width: 1100px) {
+
+  .passwordInput,
+  .emailInput,
+  .nameInput {
+    padding: 0.5rem;
+  }
+}
+
+.emailInput {
+  margin-bottom: 2em;
+  /* needs svg url adding */
+}
+
+.passwordInput {
+  margin-bottom: 2em;
+  /* needs svg url adding */
+}
+
+.signInBar,
+.registerBar {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: inherit;
+}
+
+.signInButton,
+.registerButton,
+.signInText,
+.registerText {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+
+  .signInBar,
+  .registerBar {
+    justify-content: start;
+  }
+}
+
+.signInText,
+.signUpText {
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
+.signInButton,
+.registerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: #00cc66;
+  border-radius: 50%;
+}
 
-.registerButton,
-.logOut {
-  background-color: cyan;
+@media (min-width: 1024px) {
+
+  .signInButton,
+  .registerButton {
+    margin-left: 3rem;
+  }
+}
+
+.socialLogin {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialIconDiv {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75em;
+  margin: 1.5em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  box-shadow: 0, 4px, 8px rgba(0, 0, 0, 0.12);
+}
+
+.socialIconImg {
+  width: 100%;
+}
+
+.registerLink {
+  margin-top: 4rem;
+  color: #00cc66;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .changePersonalDetails {
@@ -120,10 +240,44 @@ button {
   }
 }
 
-.socialIconImg {
-  height: 26px;
-  width: 26px;
-  border: 2px solid; 
-  border-radius: 50%;
-  
+
+
+/*________________ EXPLORE PAGE ____________ */
+
+@media (min-width: 1217px) {
+  .explore {
+    margin-bottom: 10rem;
+  }
+}
+
+@media (max-height: 536px) {
+  .explore {
+    margin-bottom: 10rem;
+  }
+}
+
+.exploreHeading,
+.exploreCategoryHeading {
+  font-weight: 700;
+}
+
+.exploreCategoryHeading {
+  margin-top: 3rem;
+}
+.exploreCategories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exploreCategories a {
+  width: 48%;
+}
+
+.exploreCategoryImg {
+  min-height: 115px;
+  height: 15vw;
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  margin: 0 auto;
 }
