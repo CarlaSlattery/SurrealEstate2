@@ -1,32 +1,33 @@
 import { Link } from "react-router-dom";
+
 import { AiFillDelete } from "react-icons/ai";
 import { BiBed, BiBath } from "react-icons/bi";
 
+
+
 function ListingItem({ listing, id, onDelete }) {
   console.log("Listing data:", listing);
-  console.log("Listing type:", listing.type, listing.name, listing.bedrooms)
-  // Check if imgUrls array exists and has at least one item
-   if (!listing || !listing.imgUrls || listing.imgUrls.length === 0) {
-  return null; // Render nothing if the necessary data is missing
-   }
-  
+  console.log("Listing type:", listing.type, listing.name, listing.bedrooms, listing.imageUrls);
+  if (!listing || !listing.imageUrls || listing.imageUrls.length === 0) {
+    return null;
+  }
   return (
     <li className="categoryListing">
-      console.log({listing.type})
       <Link
         to={`/category/${listing.type}/${id}`}
         className="categoryListingLink"
       >
         <img
-          src={listing.imgUrls[0]}
+          src={listing.imageUrls[0]}
           alt={listing.name}
           className="categoryListingImg"
         />
         <div className="categoryListingDetails">
           <p className="categoryListingLocation">{listing.location}</p>
           <p className="categoryListingName">{listing.name}</p>
+
           <p className="categoryListingPrice">
-            £
+            $
             {listing.offer
               ? listing.discountedPrice
                   .toString()
@@ -36,7 +37,7 @@ function ListingItem({ listing, id, onDelete }) {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" && " / Month"}
           </p>
-          <div className="categoryListingInfo">
+          <div className="categoryListingInfoDiv">
             <BiBed alt="bed" />
             <p className="categoryListingInfoText">
               {listing.bedrooms > 1
@@ -45,13 +46,20 @@ function ListingItem({ listing, id, onDelete }) {
             </p>
             <BiBath alt="bath" />
             <p className="categoryListingInfoText">
-              {listing.bathrooms > 1 ? `${listing.bathrooms} Bathrooms` : "1 Bathroom"}
+              {listing.bathrooms > 1
+                ? `${listing.bathrooms} Bathrooms`
+                : "1 Bathroom"}
             </p>
           </div>
         </div>
       </Link>
+
       {onDelete && (
-        <AiFillDelete onClick={() =>onDelete(listing.id, listing.name)} />
+        <AiFillDelete
+          className="removeIcon"
+          fill="rgb(231, 76,60)"
+          onClick={() => onDelete(listing.id, listing.name)}
+        />
       )}
     </li>
   );
