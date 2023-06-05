@@ -21,6 +21,7 @@ function Category() {
   const params = useParams();
 
   useEffect(() => {
+    //create variable to enable async/await - not direct on useEffect
     const fetchListings = async () => {
       try {
         //Get references
@@ -76,12 +77,17 @@ function Category() {
               {listings.map((listing) => (
                 //console.log("Listing data:", listing.data);
                 //console.log("Listing ID:", listing.id);
-               <h3 key={listing.id}>{listing.data.name}</h3>
+                //<h3 key={listing.id}>{listing.data.name}</h3>
+                 <ListingItem
+                   listing={listing.data}
+                   id={listing.id}
+                   key={listing.id}
+                 />
               ))}
             </ul>
           </main>
         </>
-       ) : (
+      ) : (
         <p> No listings for {params.categoryName}</p>
       )}
     </div>
